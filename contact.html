@@ -1,99 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dancing Journey | Contact</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header class="hero">
-        <p class="eyebrow">LET'S CONNECT</p>
-        <h1>CONTACT &amp; COMMENTS</h1>
-        <p class="tagline">Thanks for visiting my dancing journey!</p>
-    </header>
-
-    <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="hobby.html">My Dancing</a>
-        <a href="gallery.html">Gallery</a>
-        <a class="active" href="contact.html">Contact</a>
-    </nav>
-
-    <main class="container">
-        <section class="card">
-            <h2>Leave a Comment</h2>
-
-            <p>
-                Thank you for visiting! I would love to know what you think
-                about my dancing journey. Add a name and a comment below.
-            </p>
-
-            <p class="form-note">
-                This is a static website demo: comments appear on this page
-                for this visit only and are not sent to the site owner.
-            </p>
-
-            <form id="comment-form">
-                <div class="form-field">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name"
-                           placeholder="Enter your name" required>
-                </div>
-
-                <div class="form-field">
-                    <label for="comment">Your comment</label>
-                    <textarea id="comment" name="comment" rows="5"
-                              placeholder="Write your comment here..." required></textarea>
-                </div>
-
-                <button type="submit">Add Comment</button>
-                <p id="form-status" class="form-status" aria-live="polite"></p>
-            </form>
-        </section>
-
-        <section class="card" aria-labelledby="comments-heading">
-            <h2 id="comments-heading">Comments on This Visit</h2>
-            <div id="comment-list">
-                <p id="empty-comments">No comments yet. You can add the first one above!</p>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        const commentForm = document.querySelector("#comment-form");
-        const commentList = document.querySelector("#comment-list");
-        const formStatus = document.querySelector("#form-status");
-
-        commentForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const name = commentForm.elements.name.value.trim();
-            const comment = commentForm.elements.comment.value.trim();
-            if (!name || !comment) {
-                commentForm.reportValidity();
-                return;
-            }
-
-            document.querySelector("#empty-comments")?.remove();
-
-            const entry = document.createElement("article");
-            entry.className = "comment-entry";
-
-            const author = document.createElement("h3");
-            author.textContent = name;
-
-            const message = document.createElement("p");
-            message.textContent = comment;
-
-            entry.append(author, message);
-            commentList.prepend(entry);
-            commentForm.reset();
-            formStatus.textContent = "Your comment has been added to this page.";
-        });
-    </script>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Dancing Journey | Contact</title></head>
+<body bgcolor="#f7f5ef" text="#263b39">
+<table width="100%" cellpadding="12" cellspacing="0" bgcolor="#e8efe8"><tr><td align="center"><font size="2" color="#285d56"><b>LET'S CONNECT</b></font><h1><font color="#214a45">CONTACT &amp; COMMENTS</font></h1><p><i>Thanks for visiting my dancing journey!</i></p></td></tr></table>
+<table width="100%" cellpadding="8" cellspacing="0" bgcolor="#214a45"><tr><td align="center"><font color="#fffefa"><b><a href="index.html"><font color="#fffefa">Home</font></a> &nbsp;|&nbsp; <a href="about.html"><font color="#fffefa">About Me</font></a> &nbsp;|&nbsp; <a href="hobby.html"><font color="#fffefa">My Dancing</font></a> &nbsp;|&nbsp; <a href="gallery.html"><font color="#fffefa">Gallery</font></a> &nbsp;|&nbsp; <a href="contact.html"><font color="#fffefa">Contact</font></a></b></font></td></tr></table>
+<table width="90%" cellpadding="20" cellspacing="0" align="center"><tr><td>
+<h2><font color="#214a45">Leave a Comment</font></h2>
+<p>Thank you for visiting! I would love to know what you think about my dancing journey.</p>
+<form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+<p><label for="name"><b>Name</b></label><br><input type="text" id="name" name="name" required size="40"></p>
+<p><label for="comment"><b>Your comment</b></label><br><textarea id="comment" name="comment" rows="6" cols="40" required></textarea></p>
+<p><input type="submit" value="Send Comment"> <input type="reset" value="Clear"></p>
+</form>
+<hr color="#d7785c">
+<h2><font color="#214a45">About This Website</font></h2>
+<p>This website shares Jane's love for dancing, personal story, favorite activities, and dance gallery.</p>
+</td></tr></table>
 </body>
 </html>
