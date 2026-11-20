@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dancing Journey | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h1>CONTACT &amp; COMMENTS</h1>
+        <p class="tagline">Thanks for visiting my dancing journey!</p>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="hobby.html">My Dancing</a>
+        <a href="gallery.html">Gallery</a>
+        <a class="active" href="contact.html">Contact</a>
+    </nav>
+
+    <main class="container">
+        <section class="card">
+            <h2>Leave a Comment</h2>
+
+            <p>
+                Thank you for visiting! I would love to know what you think
+                about my dancing journey. Add a name and a comment below.
+            </p>
+
+            <p class="form-note">
+                This is a static website demo: comments appear on this page
+                for this visit only and are not sent to the site owner.
+            </p>
+
+            <form id="comment-form">
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="comment">Your comment</label>
+                    <textarea id="comment" name="comment" rows="5"
+                              placeholder="Write your comment here..." required></textarea>
+                </div>
+
+                <button type="submit">Add Comment</button>
+                <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="card" aria-labelledby="comments-heading">
+            <h2 id="comments-heading">Comments on This Visit</h2>
+            <div id="comment-list">
+                <p id="empty-comments">No comments yet. You can add the first one above!</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const commentForm = document.querySelector("#comment-form");
+        const commentList = document.querySelector("#comment-list");
+        const formStatus = document.querySelector("#form-status");
+
+        commentForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = commentForm.elements.name.value.trim();
+            const comment = commentForm.elements.comment.value.trim();
+            if (!name || !comment) {
+                commentForm.reportValidity();
+                return;
+            }
+
+            document.querySelector("#empty-comments")?.remove();
+
+            const entry = document.createElement("article");
+            entry.className = "comment-entry";
+
+            const author = document.createElement("h3");
+            author.textContent = name;
+
+            const message = document.createElement("p");
+            message.textContent = comment;
+
+            entry.append(author, message);
+            commentList.prepend(entry);
+            commentForm.reset();
+            formStatus.textContent = "Your comment has been added to this page.";
+        });
+    </script>
+
+</body>
+</html>
